@@ -200,9 +200,10 @@ public class Main extends javax.swing.JFrame {
         char [] pass = PF_Password.getPassword();
         ResultSet RS;
         try {
-            bdd.Query.execute("Select Nombre, Contraseña, TipoUsuario from Usuarios where Nombre= " + user + " and Contraseña= " + pass);
+            bdd.Query.execute("Select Nombre,Contraseña,TipoUsuario from Usuarios where Nombre='" + user + "' and Contraseña='" + pass.toString() + "'");
             RS = bdd.Query.getResultSet();
             if (RS.next()) {
+                
                 Usuario temp = new Usuario(RS.getString(1), RS.getString(2), RS.getInt(3));
                 System.out.println(temp);
             } else {
