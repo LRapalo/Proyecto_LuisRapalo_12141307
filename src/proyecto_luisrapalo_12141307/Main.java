@@ -151,13 +151,14 @@ public class Main extends javax.swing.JFrame {
         String user = TF_User.getText();
         String aux = " ";
         char [] pass = PF_Password.getPassword();
+        ResultSet RS;
         try {
-            bdd.Query.execute("Select nombre, contraseña from Usuarios");
-            ResultSet RS = bdd.Query.getResultSet();
+            bdd.Query.execute("Select Nombre, Contraseña, TipoUsuario from Usuarios where Nombre= " + user + " and Contraseña= " + pass);
+            RS = bdd.Query.getResultSet();
         } catch (Exception e) {
             System.out.println("Error en ResultSet!");
         }
-        
+        if ()
         
         for (int i = 0; i < 10; i++) {
             
@@ -229,4 +230,5 @@ public class Main extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
     ArrayList<Usuario> Usuarios = new ArrayList();
     Base_de_datos bdd = new Base_de_datos("./Database11.accdb");
+    ArrayList listaU = new ArrayList ();
 }
